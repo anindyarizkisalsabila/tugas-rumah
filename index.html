@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Risol Mayo Salsa</title>
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  color:#333;
+  scroll-behavior:smooth;
+  padding-top:70px; /* FIX NAVBAR FIXED */
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  height:70px;
+  padding:0 30px;
+  background:rgba(255,255,255,0.95);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:9999;
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.logo img{
+  width:45px;
+  height:45px;
+}
+
+.nav-menu a{
+   text-decoration:none;
+    color:#333;
+     font-weight:600;
+      position:relative;
+     }
+
+
+.nav-menu a{
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+  position:relative;
+  display:flex;
+}
+
+.nav-menu a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0;
+  height:2px;
+  background:#ff8c00;
+  transition:.3s;
+}
+.nav-menu{
+  list-style:none;
+  display:flex;
+  gap:30px;
+}
+
+.nav-menu a:hover::after{width:100%}
+.nav-menu a:hover{color:#ff8c00}
+
+.hamburger{
+  display:none;
+  font-size:30px;
+  cursor:pointer;
+  color:#ff8c00;
+  z-index:10000;
+}
+
+/* ===== HERO ===== */
+.hero{
+  height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+    url("Risoles Mayonise (1).jpg");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+  padding:20px;
+}
+
+.hero-title{
+  font-size:52px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+
+.hero-desc{
+  font-size:20px;
+  margin:15px 0 30px;
+  opacity:.9;
+}
+
+.btn{
+  padding:14px 38px;
+  background:#ff8c00;
+  color:white;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+  transition:.3s;
+}
+.btn:hover{
+  background:#ff3d00;
+  transform:scale(1.08);
+}
+
+/* ===== SECTION ===== */
+section{
+  padding:90px 20px;
+  text-align:center;
+}
+
+h2{
+  color:#ff8c00;
+  margin-bottom:30px;
+  font-size:32px;
+}
+
+/* ===== ABOUT ===== */
+.about{
+  max-width:900px;
+  margin:auto;
+  line-height:1.9;
+  font-size:17px;
+}
+
+/* ===== MENU ===== */
+#menu{
+  background:#fffaf3;
+}
+
+.menu-container{
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.menu-item{
+  background:white;
+  width:250px;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
+  transition:.3s;
+}
+
+.menu-item:hover{
+  transform:translateY(-10px);
+}
+
+.menu-item img{
+  width:100%;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+
+.menu-item h3{
+  color:#e40d0a;
+}
+
+.menu-item p{
+  opacity:0;
+  margin-top:8px;
+  font-weight:bold;
+  transition:.3s;
+}
+.menu-item:hover p{opacity:1}
+
+/* ===== KEUNGGULAN ===== */
+.keunggulan{
+  padding:80px 10%;
+  background:#fff8f0;
+}
+
+.keunggulan-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:45px;
+}
+
+.keunggulan-box{
+  background:white;
+  padding:50px 40px;
+  border-radius:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  transition:.4s;
+}
+
+.keunggulan-box i{
+  font-size:45px;
+  color:#ff9800;
+  margin-bottom:25px;
+}
+
+.keunggulan-box h3{
+  margin-bottom:15px;
+}
+
+.keunggulan-box p{
+  line-height:1.8;
+  margin-top:18px;
+}
+
+.keunggulan-box:hover{
+  transform:translateY(-10px);
+  background:#ff9800;
+  color:white;
+}
+.keunggulan-box:hover i{color:white}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#ff8c00;
+  color:white;
+  padding:50px 20px;
+}
+
+.footer-content{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+}
+
+.copy{
+  text-align:center;
+  margin-top:30px;
+  font-size:14px;
+}
+
+/* ===== RESPONSIVE + HAMBURGER ===== */
+@media (max-width:768px){
+
+  .hamburger{
+    display:block;
+  }
+
+  .nav-menu{
+  position:fixed;
+  top:70px;
+  right:10px; 
+  width:220px;  /* lebih kecil */
+  height:auto;  /* tidak full tinggi */
+  background:white;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:35px;
+  transition:.4s ease;
+}
+
+
+  .nav-menu.active{
+    display:flex;
+  }
+
+  .hero-title{
+    font-size:34px;
+  }
+
+  .hero-desc{
+    font-size:16px;
+  }
+
+  .keunggulan{
+    padding:70px 20px;
+  }
+
+  .keunggulan-box{
+    padding:40px 30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <img src="logo.png" alt="Risol Mayo">
+  </div>
+
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#keunggulan">Keunggulan</a></li>
+    <li><a href="#contact">Footer</a></li>
+  </ul>
+
+  <div class="hamburger" id="hamburger">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+</nav>
+
+<div class="hero" id="home">
+  <div>
+    <h1 class="hero-title">RIMAYO</h1>
+    <p class="hero-desc">
+      Camilan favorit dengan kulit renyah, isian creamy,
+      dan rasa yang bikin nagih
+    </p>
+    <a href="pesan.html" class="btn">Pesan di Sini</a>
+  </div>
+</div>
+
+<section id="about">
+  <h2>Tentang Kami</h2>
+  <p class="about">Risol Mayo Pang adalah camilan favorit dengan kulit renyah dan isian creamy yang menggoda selera. Terbuat dari bahan segar pilihan, setiap gigitannya menghadirkan kombinasi rasa gurih dan lezat, cocok untuk dinikmati kapan saja. Praktis, higienis, dan 100% halal, Risol Mayo Pang siap menemani momen santai kamu dengan cita rasa yang bikin ketagihan.</p>
+</section>
+
+<section id="menu">
+  <h2>Menu Kami</h2>
+  <div class="menu-container">
+    <div class="menu-item"><img src="download (14).jpg"><h3>Risol Ayam</h3><p>Rp 2.000</p></div>
+    <div class="menu-item"><img src="Risol mayo.jpg"><h3>Risol Telur</h3><p>Rp 1.500</p></div>
+    <div class="menu-item"><img src="salsa.jpg"><h3>Risol Sosis</h3><p>Rp 1.500</p></div>
+  </div>
+</section>
+
+<section id="keunggulan" class="keunggulan">
+  <h2>Mengapa Memilih Risol Mayo Kami?</h2>
+  <div class="keunggulan-container">
+    <div class="keunggulan-box"><i class="fas fa-mosque"></i><h3>100% Halal</h3><p>diproduksi dengan standar halal yang ketat, sehingga aman dan nyaman dikonsumsi seluruh keluarga. Kamu bisa menikmati camilan lezat ini tanpa khawatir, karena setiap bahan dan proses pembuatannya sudah sesuai syariat.</p></div>
+    <div class="keunggulan-box"><i class="fas fa-leaf"></i><h3>Bahan Berkualitas</h3><p>Kami hanya menggunakan bahan-bahan segar pilihan untuk memastikan rasa dan kualitas terbaik. Dari kulit renyah sampai isian creamy, semuanya dipilih dengan teliti agar setiap gigitan selalu memuaskan.</p></div>
+    <div class="keunggulan-box"><i class="fas fa-fire"></i><h3>Rasa Autentik</h3><p>rpaduan kulit yang renyah dan isiannya yang creamy menghadirkan rasa gurih yang autentik dan menggugah selera. Risol Mayo Pang dibuat untuk memberi pengalaman makan yang nikmat, bikin nagih, dan sulit dilupakan.</p></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-content">
+    <div>
+      <h3>Risol Mayo Salsa</h3>
+      <p>Camilan favorit keluarga.</p>
+    </div>
+    <div>
+      <!-- Lokasi ke Google Maps -->
+      <p>
+        <a href="https://maps.app.goo.gl/P4xZeZEGAHJjJved7" target="_blank" style="color:white; text-decoration:none;">
+          <i class="fa-solid fa-location-dot"></i> Purbalingga
+        </a>
+      </p>
+
+      <!-- WhatsApp ke nomor -->
+      <p>
+        <a href="https://wa.me/6288226768047" target="_blank" style="color:white; text-decoration:none;">
+          <i class="fa-brands fa-whatsapp"></i> 88226768047
+        </a>
+      </p>
+
+      <!-- Instagram ke akun -->
+      <p>
+        <a href="https://instagram.com/triyanah_djuwanto" target="_blank" style="color:white; text-decoration:none;">
+          <i class="fa-brands fa-instagram"></i> @triyanah_djuwanto
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <div class="copy">© 2025 Risol Mayo Salsa</div>
+</footer>
+
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+const navLinks = document.querySelectorAll(".nav-menu li a"); // ⬅️ perbaikan selector
+
+// toggle menu pas klik hamburger
+hamburger.onclick = () => {
+  navMenu.classList.toggle("active");
+};
+
+// auto close pas klik salah satu link
+navLinks.forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("active");
+  });
+});
+</script>
+
+
+
+</body>
+</html>
